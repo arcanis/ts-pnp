@@ -13,9 +13,9 @@ yarn add -D ts-pnp
 
 ## Usage
 
-*Note that `ts-pnp` is a low-level package - integrating it with your tools is typically done by other plugins that then make use of `ts-pnp`, such as [`pnp-plugin-webpack`](https://github.com/arcanis/pnp-webpack-plugin#ts-loader-integration)*
+*Note that `ts-pnp` is a low-level package - you shouldn't have to use it unless you're writing a TS compiler host. If you just want to write TypeScript and have it Just Work™, take a look at [`pnp-plugin-webpack`](https://github.com/arcanis/pnp-webpack-plugin#ts-loader-integration) instead.*
 
-The plugin exports a function that can be used to implement the [`resolveModuleName` hook from `CompilerHost`](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#customizing-module-resolution). It mimics the interface from the one you'd typically use and, as all other PnP plugins, works just fine whether your application is actually running under PnP or not.
+This package exports a function that can be used to implement the [`resolveModuleName` hook from `CompilerHost`](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#customizing-module-resolution). It mimics the interface from the one you'd typically use and, as all other PnP plugins, works just fine whether your application is actually running under PnP or not.
 
 ```js
 import {resolveModuleName} from 'ts-pnp';
