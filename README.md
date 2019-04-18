@@ -26,13 +26,20 @@ function createCompilerHost(
 ): ts.CompilerHost {
   const compilerHost = {
     resolveModuleNames,
+    resolveTypeReferenceDirectives,
   };
 
   return compilerHost;
 
   function resolveModuleNames(moduleNames: string[], containingFile: string) {
     return moduleNames.map(moduleName => {
-      return resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost, ts.resolveModuleName);
+      return resolveModuleName(moduleName, containingFile, compilerOptions, compilerHost, ts.resolveModuleName).resolvedModule;
+    });
+  }
+
+  function resolveTypeReferenceDirectives(typeDirectiveNames: string[], containingFile: string) {
+    return typeDirectiveNames.map(typeDirectiveName => {
+      return resolveModuleName(typeDirectiveName, containingFile, compilerOptions, compilerHost, ts.resolveTypeReferenceDirective).resolvedTypeReferenceDirective;
     });
   }
 }

@@ -25,7 +25,7 @@ function resolveModuleName(request, issuer, compilerOptions, moduleResolutionHos
     if (unqualified) {
       const finalResolution = parentResolver(unqualified, issuer, compilerOptions, moduleResolutionHost);
 
-      if (finalResolution.resolvedModule) {
+      if (finalResolution.resolvedModule || finalResolution.resolvedTypeReferenceDirective) {
         return finalResolution;
       } else {
         failedLookupLocations = failedLookupLocations.concat(finalResolution.failedLookupLocations);
@@ -45,7 +45,7 @@ function resolveModuleName(request, issuer, compilerOptions, moduleResolutionHos
     if (unqualified) {
       const finalResolution = parentResolver(unqualified, issuer, compilerOptions, moduleResolutionHost);
 
-      if (finalResolution.resolvedModule) {
+      if (finalResolution.resolvedModule || finalResolution.resolvedTypeReferenceDirective) {
         return finalResolution;
       } else {
         failedLookupLocations = failedLookupLocations.concat(finalResolution.failedLookupLocations);
@@ -55,6 +55,7 @@ function resolveModuleName(request, issuer, compilerOptions, moduleResolutionHos
 
   return {
     resolvedModule: undefined,
+    resolvedTypeReferenceDirective: undefined,
     failedLookupLocations,
   };
 }
