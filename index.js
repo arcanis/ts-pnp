@@ -23,6 +23,13 @@ function resolveModuleName(request, issuer, compilerOptions, moduleResolutionHos
     } catch (error) {}
 
     if (unqualified) {
+      // TypeScript checks whether the directory of the candidate is a directory
+      // which may cause issues w/ zip loading (since the zip archive is still
+      // reported as a file). To workaround this we add a trailing slash, which
+      // causes TypeScript to assume the parent is a directory.
+      if (moduleResolutionHost.directoryExists && moduleResolutionHost.directoryExists(unqualified))
+        unqualified += `/`;
+
       const finalResolution = parentResolver(unqualified, issuer, compilerOptions, moduleResolutionHost);
 
       if (finalResolution.resolvedModule || finalResolution.resolvedTypeReferenceDirective) {
@@ -43,6 +50,13 @@ function resolveModuleName(request, issuer, compilerOptions, moduleResolutionHos
     } catch (error) {}
 
     if (unqualified) {
+      // TypeScript checks whether the directory of the candidate is a directory
+      // which may cause issues w/ zip loading (since the zip archive is still
+      // reported as a file). To workaround this we add a trailing slash, which
+      // causes TypeScript to assume the parent is a directory.
+      if (moduleResolutionHost.directoryExists && moduleResolutionHost.directoryExists(unqualified))
+        unqualified += `/`;
+
       const finalResolution = parentResolver(unqualified, issuer, compilerOptions, moduleResolutionHost);
 
       if (finalResolution.resolvedModule || finalResolution.resolvedTypeReferenceDirective) {
