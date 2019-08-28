@@ -20,6 +20,9 @@
         "plugnplay",
         "pnp"
     ],
+    "devDependencies": {
+        "typescript": "3.5.3"
+    },
     "peerDependencies": {
         "typescript": "*"
     },
