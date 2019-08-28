@@ -12,4 +12,4 @@ export declare function resolveModuleName(
     options: ts.CompilerOptions,
     moduleResolutionHost: ts.ModuleResolutionHost,
   ) => ts.ResolvedModuleNameWithFallbackLocations,
-): ts.ResolvedModuleNameWithFallbackLocations;
+): ts.ResolvedModuleWithFailedLookupLocations & ts.ResolvedTypeReferenceDirectiveWithFailedLookupLocations;
