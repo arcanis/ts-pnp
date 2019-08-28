@@ -1,6 +1,6 @@
 {
     "name": "ts-pnp",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "description": "plug'n'play resolver for TypeScript",
     "license": "MIT",
     "engines": {
