@@ -1,6 +1,6 @@
 {
     "name": "ts-pnp",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "plug'n'play resolver for TypeScript",
     "license": "MIT",
     "engines": {
@@ -22,9 +22,6 @@
     ],
     "devDependencies": {
         "typescript": "3.5.3"
-    },
-    "peerDependencies": {
-        "typescript": "*"
     },
     "peerDependenciesMeta": {
         "typescript": {
